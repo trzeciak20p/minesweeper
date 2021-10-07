@@ -1,4 +1,4 @@
-# minesweeper-exe
+# minesweeper.exe
 minesweeper ale nie exe a na przeglądarce POGU
 
 ## Jak powinno wyglądać: 
@@ -11,4 +11,4 @@ minesweeper ale nie exe a na przeglądarce POGU
 
 
 
-twój stary
+sie zobaczy jak to bendziem 
