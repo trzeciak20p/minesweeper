@@ -10,6 +10,7 @@ minesweeper ale nie exe a na przeglądarce POGU
 6. możliwość ponownej gry z tego samego okna
 7. grafika min i flag
 8. może obiektowo ale nwm jak by to zrobić i ogólnie nie umiem obiektówki EZn't
+9. dodać emotke z okularkami B)
 
 
 well see :/
