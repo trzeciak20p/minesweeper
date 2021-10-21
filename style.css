@@ -30,6 +30,24 @@ header label{
 	justify-content: space-around;
 }
 main{
+	margin-top: 20px;
 	background-color: #eeeeee;
+	display: flex;
+	justify-content: space-around;
+}
+#main_saper{
+	width: auto;	
+	height: auto;
+	z-index: 2;
+} 
+#main_saper table, #main_saper td, #main_saper tr {
+	margin: 20px;
+	border: black 1px solid;
+	border-collapse: collapse;
+}
+#main_saper table td{
+	width: 11px;
+	height: 11px;
+	background-color: grey;
 }
 
