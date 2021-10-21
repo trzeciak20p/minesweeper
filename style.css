@@ -8,11 +8,13 @@ header{
 	height: 100px;
 	background-color: #eeeeee;
 	text-transform: uppercase;
+	box-shadow: 0px 25px 5px #b3b3b3;
 }
 header span{
 	font-size: 65px;
-	margin: 20px;
-	color: #72ec1c;
+	margin-left: 20px;
+	margin-top: 10px;
+	color: #16FF11;
 	font-family: Arial;
 	float: left;
 }
@@ -34,16 +36,15 @@ main{
 	justify-content: space-around;
 	align-items: center;
 	width: 100%;
-	height: 85vh;
-	border: solid 1px red;
+	height: 100%;
 }
 #main_saper{
-	margin-top: 20px; 
+	margin-top: 40px; 
 	z-index: 2;
-	width: 70%;
-	height: 70%;
-	background-color: #eeeeee;
-	border: solid 1px black;
+	width: 650px;
+	height: 650px;
+	background-color: white;
+	border: solid 30px #00ff00;
 } 
 #main_saper table, #main_saper td, #main_saper tr {
 	margin: 20px;

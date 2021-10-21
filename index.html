@@ -11,7 +11,7 @@
         content='Gra saper minesweeper miny gra. Bardzo dobra polecam gra miny wciągająca saper yyy... super'>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="minesweeper_icon.jpg">
-    <title>Minesweeper</title>
+    <title> B) Minesweeper</title>
 </head>
 
 <body>
@@ -51,9 +51,23 @@
 
         document.getElementById("start_saper").addEventListener("click", saper_start)
 
-        docmuent.addEventListener("keydown", function (event) {
+        let co_teraz = 0
+        document.addEventListener("keydown", function (event) {
+            console.log(event, event.keyCode)
+            if (event.keyCode == 32) {
+                if (co_teraz == 0) {
+                    co_teraz = 1
+                    document.getElementById("main_saper").style.border = "solid 30px #ff0000";
+                } else {
+                    co_teraz = 0
+                    document.getElementById("main_saper").style.border = "solid 30px #00ff00";
+                }
 
-            let x
+
+
+
+
+            }
 
 
 
