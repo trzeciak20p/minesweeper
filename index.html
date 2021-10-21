@@ -33,6 +33,7 @@
 
         </form>
     </header>
+    <br/>
 
     <main>
         
@@ -48,15 +49,28 @@
 
     <script>
         
-        document.addEventListener(document.getElementById("start_saper"), saper_start)
+        document.getElementById("start_saper").addEventListener("click", saper_start)
 
         function saper_start(){
-            cols = document.getElementById("inpt_col").value
-            rows = document.getElementById("inpt_row").value
-            mines = document.getElementById("inpt_mines").value
+            let cols = document.getElementById("inpt_col").value
+            let rows = document.getElementById("inpt_row").value
+            let mines = document.getElementById("inpt_mines").value
+            let main_saper = document.getElementById("main_saper")
+            main_saper.innerHTML = "<table>"
+            for(i = 0; i < rows; i++){
+                console.log("pls działaj")
+                main_saper.innerHTML += "<tr>"
+                for(j = 0; j < cols; j++){
+                    main_saper.innerHTML += "<td></td>"
+                }
+                main_saper.innerHTML += "</tr>"
+            }
+            main_saper.innerHTML += "</table>"
+
+
         }
 
-
+        
 
 
     </script>
