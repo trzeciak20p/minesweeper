@@ -37,11 +37,11 @@
 
     <main>
 
-        <div id="main_saper">
-            <div>
+        <div id="saper_otoczka">
+            <table id="main_saper">
 
-            </div>
-
+            </table>
+        </div>
 
 
     </main>
@@ -53,7 +53,6 @@
 
         let co_teraz = 0
         document.addEventListener("keydown", function (event) {
-            console.log(event, event.keyCode)
             if (event.keyCode == 32) {
                 if (co_teraz == 0) {
                     co_teraz = 1
@@ -84,17 +83,15 @@
             let rows = document.getElementById("inpt_row").value
             let mines = document.getElementById("inpt_mines").value
             let main_saper = document.getElementById("main_saper")
-            main_saper.innerHTML = "<table>"
-            // for(i = 0; i < rows; i++){
-            //     console.log("pls działaj")
-            //     main_saper.innerHTML += "<tr>"
-            //     for(j = 0; j < cols; j++){
-            //         main_saper.innerHTML += "<td></td>"
-            //     }
-            //     main_saper.innerHTML += "</tr>"
-            // }
-            // main_saper.innerHTML += "</table>"
-
+            let saper_tabela_text = ""
+            for(i = 0; i < rows; i++){
+                saper_tabela_text += " <tr> "
+                for(j = 0; j < cols; j++){
+                    saper_tabela_text += " <td> </td> "
+                }
+                saper_tabela_text += " </tr> "
+            }
+            main_saper.innerHTML = saper_tabela_text
 
         }
 
