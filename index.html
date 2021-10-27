@@ -20,16 +20,16 @@
         <span>saper</span>
         <form class="container">
 
-            <label for="inpt_col">ilość kolumn: <br />
-                <input type="number" max="50" name="inpt_col" id="inpt_col" required="required">
+            <label for="inpt_col">ilość kolumn <br />
+                <input type="number" name="inpt_col" id="inpt_col" required="required">
             </label>
             <label for="inpt_col">ilość wierszy <br />
-                <input type="number" max="50" name="inpt_row" id="inpt_row" required="required">
+                <input type="number" name="inpt_row" id="inpt_row" required="required">
             </label>
             <label for="inpt_col">ilość min <br />
-                <input type="number" max="100" min="10" name="inpt_mines" id="inpt_mines" required="required">
+                <input type="number" name="inpt_mines" id="inpt_mines" required="required">
             </label>
-            <input type="button" value="START" name="start_saper" id="start_saper">
+            <input type="button" name="start_saper" id="start_saper">
 
         </form>
     </header>
@@ -62,37 +62,37 @@
                     document.getElementById("main_saper").style.border = "solid 30px #00ff00";
                 }
 
-
-
-
-
             }
-
-
-
-
-
-
-
 
         })
 
 
-        function saper_start() {
+        function saper_start() {        //zaczyna nową grę
+
+
             let cols = document.getElementById("inpt_col").value
             let rows = document.getElementById("inpt_row").value
             let mines = document.getElementById("inpt_mines").value
+
+            if( (cols > 40 || cols < 10) || (rows > 30 || rows < 10) || (mines > 60 || mines < 25) ){
+                alert("PODAJ POPRAWNE WARTOŚCI: \nkolumny 10-30, wiersze 10-40 miny 25-60")
+                return;
+            }
+
+
             let main_saper = document.getElementById("main_saper")
             let saper_tabela_text = ""
+            
             for(i = 0; i < rows; i++){
                 saper_tabela_text += " <tr> "
                 for(j = 0; j < cols; j++){
-                    saper_tabela_text += " <td> </td> "
+                    saper_tabela_text += " <td></td> "
                 }
                 saper_tabela_text += " </tr> "
             }
             main_saper.innerHTML = saper_tabela_text
 
+            return;
         }
 
 
