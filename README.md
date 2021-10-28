@@ -11,5 +11,6 @@ minesweeper ale nie exe a na przeglądarce POGU
 7. grafika min i flag - to do
 8. Robienie min obiektowo - in progress
 9. dodać emotke z okularkami - B)
-
+10. zrobić żeby script działał - to do
+11. zmienić zmienne z elementami na consty - to do
 
