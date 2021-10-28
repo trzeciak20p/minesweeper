@@ -66,21 +66,21 @@
 
 
 
-        function Mine(mine_i, mine_j, boom, cyferka){
+        function Mine(mine_i, mine_j, boom, cyferka) {
             this.mine_i = mine_i;
             this.mine_j = mine_j;
             this.boom = boom;
             this.cyferka = cyferka
         }
 
-        function oho_mine(i, j){        //kiedy mina kliknięta
-            if(tab_mines[i][j].boom == 1){
+        function oho_mine(i, j) {        //kiedy mina kliknięta
+            if (tab_mines[i][j].boom == 1) {
                 alert("U died")
                 return;
             }
 
             return;
-        } 
+        }
 
         function losuj_liczbe(min, max) {
             min = Math.ceil(min);
@@ -88,7 +88,7 @@
             return Math.floor(Math.random() * (max - min)) + min;
         }
 
-        
+
         function saper_start() {        //zaczyna nową grę
 
 
@@ -97,7 +97,7 @@
             let mines = document.getElementById("inpt_mines").value
             let mines_now = mines
 
-            if( (cols > 40 || cols < 10) || (rows > 30 || rows < 10) || (mines > 60 || mines < 25) ){   
+            if ((cols > 40 || cols < 10) || (rows > 30 || rows < 10) || (mines > 60 || mines < 25)) {
                 alert("PODAJ POPRAWNE WARTOŚCI: \nkolumny 10-30, wiersze 10-40 miny 25-60")
                 return;
             }
@@ -105,48 +105,36 @@
             let main_saper = document.getElementById("main_saper")
             let saper_tabela_text = ""
             let tab_mines = new Array(rows)
-            
+
             let streak = 0
-            for(i = 0; i < rows; i++){          //generowanie tabli razem z minami
+            for (i = 0; i < rows; i++) {          //generowanie tabli razem z minami
                 saper_tabela_text += " <tr> "
                 tab_mines[i] = new Array(cols)
-                for(j = 0; j < cols; j++){
-                    saper_tabela_text += " <td onclick='oho_mine("+ i +", "+ j +")'></td> "
+                for (j = 0; j < cols; j++) {
+                    saper_tabela_text += " <td onclick='oho_mine(" + i + ", " + j + ")'></td> "
 
                     let randomowa = losuj_liczbe(0, 10)
-                    if(mines_now > 0){
-                        if (streak == 1){
-                            if( randomowa < 6){
+                    if (mines_now > 0) {
+                        if (streak == 1) {
+                            if (randomowa < 6) {
                                 tab_mines[i][j] = new Mine(i, j, 1, null)
                                 mines_now--
-                                console.log("odjento")
-                                console.log(tab_mines[i][j].boom)
-                            }else{
+                            } else {
                                 tab_mines[i][j] = new Mine(i, j, 0, null)
-                                console.log("nie odjento")
-                                console.log(tab_mines[i][j].boom)
                             }
-                        }else if(streak == 2){
-                            if( randomowa < 4){
+                        } else if (streak == 2) {
+                            if (randomowa < 4) {
                                 tab_mines[i][j] = new Mine(i, j, 1, null)
                                 mines_now--
-                                console.log("odjento")
-                                console.log(tab_mines[i][j].boom)
-                            }else{
+                            } else {
                                 tab_mines[i][j] = new Mine(i, j, 0, null)
-                                console.log("nie odjento")
-                                console.log(tab_mines[i][j].boom) 
                             }
-                        }else{
-                            if( randomowa < 2){
+                        } else {
+                            if (randomowa < 2) {
                                 tab_mines[i][j] = new Mine(i, j, 1, null)
                                 mines_now--
-                                console.log("odjento")
-                                console.log(tab_mines[i][j].boom)
-                            }else{
+                            } else {
                                 tab_mines[i][j] = new Mine(i, j, 0, null)
-                                console.log("nie odjento")
-                                console.log(tab_mines[i][j].boom)
                             }
                         }
                     }
@@ -156,33 +144,21 @@
             }
             main_saper.innerHTML = saper_tabela_text
 
-            while(mines_now > 0){           // ewentualne uzupełnianie min
-                for(i = 0; i < rows; i++){
-                    for(j = 0; j < cols; j++){
-                        if(tab_mines[i][j].boom == 0){
+            while (mines_now > 0) {           // ewentualne uzupełnianie min
+                for (i = 0; i < rows; i++) {
+                    for (j = 0; j < cols; j++) {
+                        if (tab_mines[i][j].boom == 0 && mines_now > 0) {
                             let randomowa = losuj_liczbe(0, 10)
-                            if(randomowa < 4){
+                            if (randomowa < 4) {
                                 tab_mines[i][j].boom = 1
                                 mines_now--
                             }
                         }
-                        if(mines_now > 0){
-                            break;
-                        }
                     }
-                    if(mines_now > 0){
-                            break;
-                    }
+
                 }
             }
 
-            console.log(mines_now)
-            for(i = 0; i < rows; i++){
-                console.log("row: "+ i ) 
-                for(j = 0; j < cols; j++){
-                    console.log( tab_mines[i][j].boom )         
-                }
-            }
 
 
             return;
