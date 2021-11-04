@@ -27,16 +27,22 @@ function Mine(mine_i, mine_j, boom, cyferka) {
 
 function teraz_najgorsze(i, j) {
 
-    for (adj_i = -1; adj_i <= 1; adj_i++) {     //ale ja mondry sam to wymyslieem 100% true
-        for (adj_j = -1; adj_j <= 1; adj_j++) {
-            if (adj_i + i >= 0 && adj_i + i <= rows - 1 && adj_j + j >= 0 && adj_j + j <= cols - 1) {
-                lacznie_cyferka += parseInt(tab_mines[i + adj_i][j + adj_j].boom)
-            } else {
+    if (odwiedzone[i][j] != true) {
+
+        if (tab_mines[j][i].cyferka == 0) {
+            console.log(document.getElementById("main_saper").children.children.childNodes[i])
+            // now_td = document.getElementById("main_saper").children.childNodes[i].childNodes[j]
+            //now_td.setAttribute("class", "odwiedzone")
+            for (adj_i = -1; adj_i <= 1; adj_i++) {     //ale ja mondry sam to wymyslieem 100% true
+                for (adj_j = -1; adj_j <= 1; adj_j++) {
+                    if (adj_i + i >= 0 && adj_i + i <= rows - 1 && adj_j + j >= 0 && adj_j + j <= cols - 1) {
+                        lacznie_cyferka += parseInt(tab_mines[i + adj_i][j + adj_j].boom)
+                    }
+                }
             }
         }
+        odwiedzone[i][j] = true
     }
-    tab_mines[i][j].cyferka = lacznie_cyferka
-
 
 
 
@@ -45,7 +51,6 @@ function oho_mine(i, j) {        //kiedy mina kliknięta
     if (tab_mines[i][j].boom == 1) {
         // alert("U died")
         console.log("DED")
-        return;
     } else {
         teraz_najgorsze(i, j)
     }
@@ -76,6 +81,7 @@ function saper_start() {        //zaczyna nową grę
     let main_saper = document.getElementById("main_saper")
     let saper_tabela_text = ""
     tab_mines = new Array(rows)
+
     odwiedzone = new Array(rows)
 
     let streak = 0
@@ -84,6 +90,7 @@ function saper_start() {        //zaczyna nową grę
         tab_mines[i] = new Array(cols)
         odwiedzone[i] = new Array(cols)
         for (j = 0; j < cols; j++) {
+
             saper_tabela_text += " <td onclick='oho_mine(" + i + ", " + j + ")'></td> "
 
             let randomowa = losuj_liczbe(0, 10)
@@ -110,6 +117,9 @@ function saper_start() {        //zaczyna nową grę
                         tab_mines[i][j] = new Mine(i, j, 0, null)
                     }
                 }
+
+            } else {
+                tab_mines[i][j] = new Mine(i, j, 0, null)
             }
         }
         saper_tabela_text += " </tr> "
@@ -131,16 +141,18 @@ function saper_start() {        //zaczyna nową grę
         }
     }
 
+    lacznie_cyferka = 0
     for (i = 0; i < rows; i++) {
         for (j = 0; j < cols; j++) {
             for (adj_i = -1; adj_i <= 1; adj_i++) {     //ale ja mondry sam to wymyslieem 100% true
                 for (adj_j = -1; adj_j <= 1; adj_j++) {
                     if (adj_i + i >= 0 && adj_i + i <= rows - 1 && adj_j + j >= 0 && adj_j + j <= cols - 1) {
-                        lacznie_cyferka += parseInt(tab_mines[i + adj_i][j + adj_j].boom)
+                        tab_mines[i][j].cyferka = lacznie_cyferka
+
                     }
                 }
             }
-            tab_mines[i][j].cyferka = lacznie_cyferka
+
         }
     }
 
