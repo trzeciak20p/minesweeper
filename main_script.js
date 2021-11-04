@@ -1,6 +1,9 @@
 document.getElementById("start_saper").addEventListener("click", saper_start)
-
+let rows
+let cols
 let co_teraz = 0
+let tab_mines
+let odwiedzone
 document.addEventListener("keydown", function (event) {         // zmiana trybu odkopywanie/oflagowywanie i kolorków
     if (event.keyCode == 32) {
         if (co_teraz == 0) {
@@ -22,10 +25,29 @@ function Mine(mine_i, mine_j, boom, cyferka) {
     this.cyferka = cyferka
 }
 
+function teraz_najgorsze(i, j) {
+
+    for (adj_i = -1; adj_i <= 1; adj_i++) {     //ale ja mondry sam to wymyslieem 100% true
+        for (adj_j = -1; adj_j <= 1; adj_j++) {
+            if (adj_i + i >= 0 && adj_i + i <= rows - 1 && adj_j + j >= 0 && adj_j + j <= cols - 1) {
+                lacznie_cyferka += parseInt(tab_mines[i + adj_i][j + adj_j].boom)
+            } else {
+            }
+        }
+    }
+    tab_mines[i][j].cyferka = lacznie_cyferka
+
+
+
+
+}
 function oho_mine(i, j) {        //kiedy mina kliknięta
     if (tab_mines[i][j].boom == 1) {
-        alert("U died")
+        // alert("U died")
+        console.log("DED")
         return;
+    } else {
+        teraz_najgorsze(i, j)
     }
 
     return;
@@ -41,24 +63,26 @@ function losuj_liczbe(min, max) {
 function saper_start() {        //zaczyna nową grę
 
 
-    let cols = document.getElementById("inpt_col").value
-    let rows = document.getElementById("inpt_row").value
+    cols = document.getElementById("inpt_col").value
+    rows = document.getElementById("inpt_row").value
     let mines = document.getElementById("inpt_mines").value
     let mines_now = mines
 
-    if ((cols > 40 || cols < 10) || (rows > 30 || rows < 10) || (mines > 60 || mines < 25)) {
+    if ((cols >= 40 || cols <= 10) || (rows >= 30 || rows <= 10) || (mines >= 60 || mines <= 25)) {
         alert("PODAJ POPRAWNE WARTOŚCI: \nkolumny 10-30, wiersze 10-40 miny 25-60")
         return;
     }
 
     let main_saper = document.getElementById("main_saper")
     let saper_tabela_text = ""
-    let tab_mines = new Array(rows)
+    tab_mines = new Array(rows)
+    odwiedzone = new Array(rows)
 
     let streak = 0
     for (i = 0; i < rows; i++) {          //generowanie tabli razem z minami
         saper_tabela_text += " <tr> "
         tab_mines[i] = new Array(cols)
+        odwiedzone[i] = new Array(cols)
         for (j = 0; j < cols; j++) {
             saper_tabela_text += " <td onclick='oho_mine(" + i + ", " + j + ")'></td> "
 
@@ -87,7 +111,6 @@ function saper_start() {        //zaczyna nową grę
                     }
                 }
             }
-            console.log(mines_now)
         }
         saper_tabela_text += " </tr> "
     }
@@ -108,7 +131,18 @@ function saper_start() {        //zaczyna nową grę
         }
     }
 
-
+    for (i = 0; i < rows; i++) {
+        for (j = 0; j < cols; j++) {
+            for (adj_i = -1; adj_i <= 1; adj_i++) {     //ale ja mondry sam to wymyslieem 100% true
+                for (adj_j = -1; adj_j <= 1; adj_j++) {
+                    if (adj_i + i >= 0 && adj_i + i <= rows - 1 && adj_j + j >= 0 && adj_j + j <= cols - 1) {
+                        lacznie_cyferka += parseInt(tab_mines[i + adj_i][j + adj_j].boom)
+                    }
+                }
+            }
+            tab_mines[i][j].cyferka = lacznie_cyferka
+        }
+    }
 
     return;
 }
