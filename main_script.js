@@ -73,8 +73,8 @@ function saper_start() {        //zaczyna nową grę
     let mines = document.getElementById("inpt_mines").value
     let mines_now = mines
 
-    if ((cols >= 40 || cols <= 10) || (rows >= 30 || rows <= 10) || (mines >= 60 || mines <= 25)) {
-        alert("PODAJ POPRAWNE WARTOŚCI: \nkolumny 10-30, wiersze 10-40 miny 25-60")
+    if ( cols > 30 || cols < 10 || rows > 40 || rows < 10 || mines > 60 || mines < 25 ) {
+        alert("PODAJ POPRAWNE WARTOŚCI: \n kolumny 10-30, wiersze 10-40 miny 25-60")
         return;
     }
 
