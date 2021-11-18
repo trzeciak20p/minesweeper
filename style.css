@@ -67,6 +67,8 @@ main{
 	height: 11px;
 	background-color: grey;
 	border: 1px black solid;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 .odwiedzone{
 	background-color: #fff !important;

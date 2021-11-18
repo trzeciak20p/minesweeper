@@ -30,9 +30,9 @@ function Mine(mine_i, mine_j, boom, cyferka, flaga) {
 function teraz_najgorsze(i, j) {
 
     
-    if (odwiedzone[j][i] == 0 && tab_mines[j][i].boom != 1 && !tab_mines[j][i].flaga) {
+    if (odwiedzone[j][i] != true && tab_mines[j][i].boom != 1 && !tab_mines[j][i].flaga) {
 
-        odwiedzone[j][i] += 1
+        odwiedzone[j][i] = true
         now_tr = document.getElementById("i" + i + "j" + j)
         now_tr.setAttribute("class", "odwiedzone")
         switch (tab_mines[j][i].cyferka){
@@ -61,7 +61,7 @@ function teraz_najgorsze(i, j) {
                 now_tr.setAttribute("style", "background-image: url('img/8.png');")
                 break;
             default:
-                
+                now_tr.setAttribute("style", "background-color: red;")
         }
         ile_odwiedzone = 0
         for (i = 0; i < rows; i++) {
@@ -69,23 +69,23 @@ function teraz_najgorsze(i, j) {
                 if(odwiedzone[i][j] > 0){
                     ile_odwiedzone++
                 }
-s
+
             }
         }
         if(ile_odwiedzone == cols * rows - mines){
             alert("WYGRAŁEŚ JEJ")
         }
-        if(odwiedzone[j][i] < 2){
-            if (tab_mines[j][i].cyferka == 0) {  
-                for (adj_i = -1; adj_i <= 1; adj_i++) {     //ale ja mondry sam to wymyslieem 100% true
-                    for (adj_j = -1; adj_j <= 1; adj_j++) {
-                        if (adj_i + i >= 0 && adj_i + i <= rows - 1 && adj_j + j >= 0 && adj_j + j <= cols - 1) {
-                            teraz_najgorsze(i + adj_i, j + adj_j)
-                        }
+
+        if (tab_mines[i][j].cyferka == 0) {  
+            for (adj_i = -1; adj_i <= 1; adj_i++) {     //ale ja mondry sam to wymyslieem 100% true
+                for (adj_j = -1; adj_j <= 1; adj_j++) {
+                    if (adj_i + i >= 0 && adj_i + i <= rows - 1 && adj_j + j >= 0 && adj_j + j <= cols - 1) {
+                        teraz_najgorsze(i + adj_i, j + adj_j)
                     }
                 }
             }
         }
+
         
     }
 
@@ -147,7 +147,7 @@ function saper_start() {        //zaczyna nową grę
         tab_mines[i] = new Array(cols)
         odwiedzone[i] = new Array(cols)
         for (j = 0; j < cols; j++) {
-            odwiedzone[i][j] = 0
+            
 
             saper_tabela_text += " <td id='i"+i+"j"+j+"' onclick='oho_mine(" + i + ", " + j + ")' ></td> "
 
@@ -198,22 +198,32 @@ function saper_start() {        //zaczyna nową grę
 
         }
     }
-
+    let aaa = 0
+    for (i = 0; i < rows; i++) {
+        for (j = 0; j < cols; j++) {
+            aaa += tab_mines[i][j].boom
+        }
+    }
     
+    console.log(aaa)
     for (i = 0; i < rows; i++) {
         for (j = 0; j < cols; j++) {
 
-            for (adj_i = -1; adj_i <= 1; adj_i++) {     //ale ja mondry sam to wymyslieem 100% true
+            for (adj_i = -1; adj_i <= 1; adj_i++) {     //ale ja mondry sam to wymyslieem 100% true                
                 for (adj_j = -1; adj_j <= 1; adj_j++) {
                     if (adj_i + i >= 0 && adj_i + i <= rows - 1 && adj_j + j >= 0 && adj_j + j <= cols - 1) {
-                        tab_mines[i][j].cyferka += tab_mines[i+adj_i][j+adj_j].boom
-                        console.log(tab_mines[i][j].cyferka)
+                        if(tab_mines[i+adj_i][j+adj_j].boom == 1){
+                            tab_mines[i][j].cyferka += 1
+                        }
+                        // tab_mines[i][j].cyferka += tab_mines[i+adj_i][j+adj_j].boom
+                        console.log(i+adj_i, j+adj_j, tab_mines[i+adj_i][j+adj_j].boom)
                     }
                 }
             }
-
+            console.log("----",tab_mines[i][j].cyferka)
         }
     }
+    console.log(mines)
 
     return;
 }

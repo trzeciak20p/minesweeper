@@ -207,7 +207,6 @@ function saper_start() {        //zaczyna nową grę
                 for (adj_j = -1; adj_j <= 1; adj_j++) {
                     if (adj_i + i >= 0 && adj_i + i <= rows - 1 && adj_j + j >= 0 && adj_j + j <= cols - 1) {
                         tab_mines[i][j].cyferka += tab_mines[i+adj_i][j+adj_j].boom
-                        console.log(tab_mines[i][j].cyferka)
                     }
                 }
             }
