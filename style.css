@@ -57,14 +57,14 @@ main{
 	z-index: 3;
 	background-color: white;
 	border: solid 30px #00ff00;
-	overflow: auto;
+	/* overflow: auto; */
 }
 #main_saper tr{
 	border: 1px red solid;
 }
 #main_saper td{
-	width: 21px;
-	height: 21px;
+	width: 11px;
+	height: 11px;
 	background-color: grey;
 	border: 1px black solid;
 }
