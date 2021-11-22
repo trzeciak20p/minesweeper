@@ -11,4 +11,5 @@ minesweeper ale nie exe a na przeglądarce POGU
 7. grafika min i flag - done
 8. Robienie min obiektowo - done
 9. dodać emotke z okularkami - B)
+10. zamienić tabele flagi i odwiedzone do obiektówki
 
