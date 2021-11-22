@@ -113,7 +113,7 @@ function saper_start() {        //zaczyna nową grę
         return;
     }
 
-    let main_saper = document.getElementById("main_saper")
+    const main_saper = document.getElementById("main_saper")
     let saper_tabela_text = ""
     tab_mines = new Array(rows)
 
@@ -184,7 +184,7 @@ function saper_start() {        //zaczyna nową grę
     console.log(aaa)
     for (i = 0; i < rows; i++) {
         for (j = 0; j < cols; j++) {
-            for (adj_i = -1; adj_i <= 1; adj_i++) {     //ale ja mondry sam to wymyslieem 100% true
+            for (adj_i = -1; adj_i <= 1; adj_i++) {     
                 for (adj_j = -1; adj_j <= 1; adj_j++) {
                     if (adj_i + i >= 0 && adj_i + i <= rows - 1 && adj_j + j >= 0 && adj_j + j <= cols - 1) {
                         tab_mines[i][j].cyferka += tab_mines[i+adj_i][j+adj_j].boom
