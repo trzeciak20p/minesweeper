@@ -34,7 +34,7 @@ function teraz_najgorsze(i, j) {
         
             now_tr = document.getElementById("i" + i + "j" + j)
             now_tr.setAttribute("class", "odwiedzone")
-            switch (tab_mines[j][i].cyferka){
+            switch (tab_mines[i][j].cyferka){
                 case 1:
                     now_tr.setAttribute("style", "background-image: url('img/1.png');")
                     break;
@@ -196,7 +196,7 @@ function saper_start() {        //zaczyna nową grę
             aaa += tab_mines[i][j].boom
         }
     }
-    console.log(aaa)
+    //console.log(aaa)
     for (i = 0; i < rows; i++) {
         for (j = 0; j < cols; j++) {
             for (adj_i = -1; adj_i <= 1; adj_i++) {     
