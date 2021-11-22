@@ -2,11 +2,11 @@ document.getElementById("start_saper").addEventListener("click", saper_start)
 let rows
 let cols
 let mines
-let co_teraz = 0
+let co_teraz = 0        //odkopywanie/oflagowywanie
 let tab_mines
-let odwiedzone
+let odwiedzone      //odwiedzone pola
 let ile_odwiedzone
-let flagi
+let flagi       // oflagowane pola
 document.addEventListener("keydown", function (event) {         // zmiana trybu odkopywanie/oflagowywanie i kolorków
     if (event.keyCode == 32) {
         if (co_teraz == 0) {
@@ -28,7 +28,7 @@ function Mine(mine_i, mine_j, boom, cyferka) {
     this.cyferka = cyferka
 }
 
-function win(){
+function win(){         //wygrana obviously
     document.getElementById("main_saper").style.border = "solid 30px #ffff00";
     co_teraz = 2
     alert("WYGRAŁEŚ B)")
@@ -74,9 +74,9 @@ function teraz_najgorsze(i, j) {
                     
             }
 
-        if (tab_mines[j][i].cyferka == 0) {         //odkrywanie pobliskich pól (średnio działa)
+        if (tab_mines[i][j].cyferka == 0) {         //odkrywanie pobliskich pól (nie dokładne)
             for (adj_i = -1; adj_i <= 1; adj_i++) {     //ale ja mondry sam to wymyslieem 100% true
-                for (adj_j = -1; adj_j <= 1; adj_j++) {
+                for (adj_j = 1; adj_j >= -1; adj_j--) {
                     if (adj_i + i >= 0 && adj_i + i <= rows - 1 && adj_j + j >= 0 && adj_j + j <= cols - 1) {
                         teraz_najgorsze(i + adj_i, j + adj_j)
                     }
@@ -86,9 +86,8 @@ function teraz_najgorsze(i, j) {
         
     }
 
-    
-
 }
+
 function oho_mine(i, j) {        //kiedy mina kliknięta
     
     if(co_teraz == 0){
