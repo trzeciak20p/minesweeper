@@ -2,13 +2,13 @@ document.getElementById("start_saper").addEventListener("click", saper_start)
 let rows
 let cols
 let mines
-let co_teraz = 0        //odkopywanie/oflagowywanie
+let co_teraz        //odkopywanie/oflagowywanie
 let tab_mines
 let odwiedzone      //odwiedzone pola
 let ile_odwiedzone
 let flagi       // oflagowane pola
 document.addEventListener("keydown", function (event) {         // zmiana trybu odkopywanie/oflagowywanie i kolorków
-    if (event.keyCode == 32) {
+    if (event.keyCode == 32 && co_teraz != 2) {
         if (co_teraz == 0) {
             co_teraz = 1
             document.getElementById("main_saper").style.border = "solid 30px #0000ff";
@@ -92,6 +92,7 @@ function oho_mine(i, j) {        //kiedy mina kliknięta
     
     if(co_teraz == 0){
         if (tab_mines[i][j].boom == 1) {
+            document.getElementById("i" + i + "j" + j).setAttribute("style", "background-image: url('img/mine.png');")
             document.getElementById("main_saper").style.border = "solid 30px #ff0000";
             co_teraz = 2
             alert("PRZEGRAŁEŚ")
@@ -130,8 +131,8 @@ function saper_start() {        //zaczyna nową grę
     mines = document.getElementById("inpt_mines").value
     let mines_now = mines
 
-    if ( cols > 30 || cols < 10 || rows > 40 || rows < 10 || mines > 60 || mines < 25 ) {
-        alert("PODAJ POPRAWNE WARTOŚCI: \n kolumny 10-30, wiersze 10-40 miny 25-60")
+    if ( cols > 30 || cols < 10 || rows > 30 || rows < 10 || mines > 90 || mines < 25 ) {
+        alert("PODAJ POPRAWNE WARTOŚCI: \n kolumny 10-30, wiersze 10-30 miny 25-90")
         return;
     }
 
