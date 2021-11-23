@@ -10,7 +10,7 @@ header{
 	text-transform: uppercase;
 	box-shadow: 0px 20px 20px 15px #b3b3b3;
 }
-header span{
+header h1{
 	font-size: 65px;
 	margin-left: 20px;
 	margin-top: 10px;
@@ -72,4 +72,23 @@ main{
 }
 .odwiedzone{
 	background-color: #fff !important;
+}
+footer{
+	background-color: #bbb;
+	box-shadow: 0px -15px 20px 15px #bbb;
+	width: 100%;
+	height: auto;
+	height: 55px;
+}
+.zasady{
+	font-size: 45px;
+	margin-top: 10px;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: #fff;
+	font-family: Arial;
+	float: right;
+}
+.zasady:hover{
+	color: #16FF11;
 }
