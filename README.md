@@ -13,3 +13,4 @@ minesweeper ale nie exe a na przeglądarce POGU
 9. dodać emotke z okularkami - B)
 10. zamienić tabele flagi i odwiedzone do obiektówki (opcjonalnie bo tak też działa) - to do
 11. strona z zasadami - done
+12. alerty na popupy - in progress
