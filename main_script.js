@@ -28,10 +28,19 @@ function Mine(mine_i, mine_j, boom, cyferka) {
     this.cyferka = cyferka
 }
 
+document.querySelector("#popdown .d_button").addEventListener("click", function(){
+    document.getElementById("popdown").style.display = "none"
+})
+function alert_ale_lepszy(text){        //popup
+    document.getElementById("popdown").style.display = "flex"
+    document.querySelector("#popdown span").innerHTML = text
+
+}
+
 function win(){         //wygrana obviously
     document.getElementById("main_saper").style.border = "solid 30px #ffff00";
     co_teraz = 2
-    alert("WYGRAŁEŚ B)")
+    alert_ale_lepszy("WYGRAŁEŚ B)")
 }
 
 function teraz_najgorsze(i, j) {
@@ -95,7 +104,7 @@ function oho_mine(i, j) {        //kiedy mina kliknięta
             document.getElementById("i" + i + "j" + j).setAttribute("style", "background-image: url('img/mine.png');")
             document.getElementById("main_saper").style.border = "solid 30px #ff0000";
             co_teraz = 2
-            alert("PRZEGRAŁEŚ")
+            alert_ale_lepszy("PRZEGRAŁEŚ")
         } else {
             teraz_najgorsze(i, j)
             flagi[i][j] = 0
@@ -131,8 +140,8 @@ function saper_start() {        //zaczyna nową grę
     mines = document.getElementById("inpt_mines").value
     let mines_now = mines
 
-    if ( cols > 30 || cols < 10 || rows > 30 || rows < 10 || mines > 90 || mines < 25 ) {
-        alert("PODAJ POPRAWNE WARTOŚCI: \n kolumny 10-30, wiersze 10-30 miny 25-90")
+    if ( cols > 30 || cols < 10 || rows > 30 || rows < 10 || mines > 90 || mines < 15 ) {
+        alert_ale_lepszy("PODAJ POPRAWNE WARTOŚCI: <br/> kolumny 10-30 &nbsp&nbsp wiersze 10-30 &nbsp&nbsp miny 15-90")
         return;
     }
 

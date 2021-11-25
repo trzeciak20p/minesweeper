@@ -25,6 +25,9 @@ header div{
     color: #f4e829;
     float: right;
 }
+header div:hover{
+	color: #f43a29;
+}
 main{
     margin: 35px 20px 0px 20px;
     font-size: 23px;
