@@ -9,7 +9,7 @@ body{
 	margin-right: 20%;
 	padding: 10px;
 	border-radius: 20px;
-	position: absolute;
+	position: fixed;
 	left: auto;
 	right: auto;
 	top: 200px;
