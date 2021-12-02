@@ -8,7 +8,7 @@ Wybierz ilość kolumn, wierszy i min kliknij guzik z emtką z okularkami.
 
 Możesz też przejść na strone zasad na dole strony
 ## Co zostało wykorzystane?
-###Java Script:
+### Java Script:
 Obiektowość, tworzenie elementów, pobieranie wartości z inputów, zmiana atrybutów znaczników w HTML
 
 ## Czego się nauczyłem?
