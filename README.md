@@ -17,12 +17,16 @@ Gdy przegrasz możesz zrestartować grę od razu klikając na COOL emotkę.
 Możesz też przejść na strone zasad na dole strony
 
 ## Co zostało wykorzystane?
-### Java Script:
-Obiektowość, tworzenie elementów, pobieranie wartości z inputów, zmiana atrybutów znaczników w HTML
+- obiektowość
+- tworzenie elementów
+- pobieranie wartości z inputów
+- zmiana atrybutów znaczników w HTML
+- funkcja rekurencyjna
 
 ## Czego się nauczyłem?
 - Poszerzyłem wiedzę o obiektowości
-- 
-
-
+- funkcji rekurencyjnych
+- defer
+- markdown
+- githuba
 
