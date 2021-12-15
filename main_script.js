@@ -131,9 +131,6 @@ function losuj_liczbe(min, max) {
 
 
 function saper_start() {        //zaczyna nową grę
-    ile_odwiedzone = 0
-    co_teraz = 0
-    document.getElementById("main_saper").style.border = "solid 30px #00ff00";
 
     cols = document.getElementById("inpt_col").value
     rows = document.getElementById("inpt_row").value
@@ -144,6 +141,10 @@ function saper_start() {        //zaczyna nową grę
         alert_ale_lepszy("PODAJ POPRAWNE WARTOŚCI: <br/> kolumny 10-30 &nbsp&nbsp wiersze 10-30 &nbsp&nbsp miny 15-90")
         return;
     }
+
+    ile_odwiedzone = 0
+    co_teraz = 0
+    document.getElementById("main_saper").style.border = "solid 30px #00ff00";
 
     const main_saper = document.getElementById("main_saper")
     let saper_tabela_text = ""
