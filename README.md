@@ -1,16 +1,32 @@
-# minesweeper.exe
-minesweeper ale nie exe a na przeglądarce POGU
 
-## Jak powinno wyglądać: 
-1. menu do wybierania gier, bo fajnie jakby więcej dać (opcionalne na koniec) - done
-2. użytkownik podaje ilość wierszy, kolumn, min (zależne od ilości pól i zasięg wyboru) - done
-3. high efficency level algorytmy do odkrywania pól - działa ale nie do końca
-4. guziki do zmiany trybu flagowanie/odkopanie i możliwość zmiany ich spacją obramówka w zależności od trybu - done
-5. personalizacja - położęnie planszy, kolorki, etc. - abadoned
-6. możliwość ponownej gry z tego samego okna - done
-7. grafika min i flag - done
-8. Robienie min obiektowo - done
-9. dodać emotke z okularkami - B)
-10. zamienić tabele flagi i odwiedzone do obiektówki (opcjonalnie bo tak też działa) - to do
-11. strona z zasadami - done
-12. alerty na popupy - done
+## Dlaczego saper?
+Wybrałem sapera, ponieważ bardzo go lubie, z początku jest wymagający i szybko można się rozwinąć.
+Był też wyzwaniem jeśli chodzi o samo programowanie lecz osiągalnym celem
+
+## Jak grać?
+Wybierz ilość kolumn, wierszy i min kliknij guzik z emtką z okularkami.
+Celem gry jest odkrycie wszytkich pól bez trafiania w miny. Aby to osiągnąć trzeba kierować się cyferkami, 
+każda z nich odpowiada ilości min znajdujących się tuż obok niej (na boki i skosy).
+Dla ułatwienia można oflagowywać pola gdzie zdają się być miny, jednak nie jest to konieczne.
+       
+Wybierz ilość kolumn, wierszy, min i kliknij w guzik z emotką z okularkami,
+a potem, po prostu kliknij jakieś pole (tak możesz zginąć za pierwszym kliknięciem, przepraszam)
+Jeśli chcesz postawić flage kliknij SPACJĘ, jeśli chcesz odkrywać pola znowu ją kliknij.
+Gdy przegrasz możesz zrestartować grę od razu klikając na COOL emotkę.
+
+Możesz też przejść na strone zasad na dole strony
+
+## Co zostało wykorzystane?
+- obiektowość
+- tworzenie elementów
+- pobieranie wartości z inputów
+- zmiana atrybutów znaczników w HTML
+- funkcja rekurencyjna
+
+## Czego się nauczyłem?
+- Poszerzyłem wiedzę o obiektowości
+- funkcji rekurencyjnych
+- defer
+- markdown
+- githuba
+
