@@ -14,4 +14,5 @@ minesweeper ale nie exe a na przeglądarce POGU
 10. zamienić tabele flagi i odwiedzone do obiektówki (opcjonalnie bo tak też działa) - to do
 11. strona z zasadami - done
 12. alerty na popupy - done
-13. naprawić flagi przy double clicku
+13. naprawić flagi przy double clicku - to do
+14. nie możesz zginąć od pierwszego kliknięcia - to do
