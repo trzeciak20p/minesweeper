@@ -6,7 +6,7 @@ minesweeper ale nie exe a na przeglądarce POGU
 2. użytkownik podaje ilość wierszy, kolumn, min (zależne od ilości pól i zasięg wyboru) - done
 3. high efficency level algorytmy do odkrywania pól - działa ale nie do końca
 4. guziki do zmiany trybu flagowanie/odkopanie i możliwość zmiany ich spacją obramówka w zależności od trybu - done
-5. personalizacja - położęnie planszy, kolorki, etc. - abadoned
+5. personalizacja - położęnie planszy, kolorki, etc. - to do w zasadach/ popup jako opcje
 6. możliwość ponownej gry z tego samego okna - done
 7. grafika min i flag - done
 8. Robienie min obiektowo - done
@@ -14,3 +14,4 @@ minesweeper ale nie exe a na przeglądarce POGU
 10. zamienić tabele flagi i odwiedzone do obiektówki (opcjonalnie bo tak też działa) - to do
 11. strona z zasadami - done
 12. alerty na popupy - done
+13. naprawić flagi przy double clicku

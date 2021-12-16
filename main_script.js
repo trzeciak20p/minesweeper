@@ -121,12 +121,13 @@ function oho_mine(i, j) {        //kiedy mina kliknięta
     if(co_teraz == 0){
         if (tab_mines[i][j].boom == 1) {
             document.getElementById("i" + i + "j" + j).setAttribute("style", "background-image: url('img/mine.png');")
+            document.getElementById("i" + i + "j" + j).setAttribute("style", "background-color: #fff")
             main_saper.style.border = "solid 30px #ff0000";
             co_teraz = 2
             alert_ale_lepszy("PRZEGRAŁEŚ")
-        } else {
+        } else {        
+            flagi[i][j] = 0         //rever kolejność ?                 
             teraz_najgorsze(i, j)
-            flagi[i][j] = 0
         }
     }else if(co_teraz == 1){
         if(flagi[i][j] == 0){
