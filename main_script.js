@@ -2,7 +2,7 @@ document.getElementById("start_saper").addEventListener("click", saper_start)
 let rows
 let cols
 let mines
-let co_teraz = 0      //odkopywanie/oflagowywanie
+let co_teraz = 0      // 0 - odkopywanie/ 1 - oflagowywanie
 let tab_mines
 let odwiedzone      //odwiedzone pola
 let ile_odwiedzone
@@ -24,15 +24,18 @@ document.addEventListener("keydown", function (event) {         // zmiana trybu 
     }
 })
 
-main_saper.addEventListener("contextmenu", function(event){       
+
+
+function oflagowywanie(event, i, j){     
     event.preventDefault()      //prawy przycisk myszy nie otwiera context menu
-    if (co_teraz != 2) {
-        if (co_teraz == 0) {
+
+    if (co_teraz != 2) {    //oflagowywanie
+        if (co_teraz == 0) {          
             co_teraz = 1
-            main_saper.style.border = "solid 30px #0000ff";
-        } else {
+            oho_mine(i,j)
             co_teraz = 0
-            main_saper.style.border = "solid 30px #00ff00";
+        } else {
+            oho_mine(i, j)          
         }
     }
 })
@@ -177,7 +180,7 @@ function saper_start() {        //zaczyna nową grę
         flagi[i] = new Array(cols)
         for (j = 0; j < cols; j++) {
 
-            saper_tabela_text += " <td id='i"+i+"j"+j+"' onclick='oho_mine(" + i + ", " + j + ")' ></td> "
+            saper_tabela_text += " <td id='i"+i+"j"+j+"' onclick='oho_mine(" + i + ", " + j + ")' oncontextmenu='oflagowywanie(" + i + ", " + j + ")' ></td> "
             flagi[i][j] = 0
             let randomowa = losuj_liczbe(0, 10)
             if (mines_now > 0) {
