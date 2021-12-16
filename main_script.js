@@ -23,13 +23,13 @@ document.addEventListener("keydown", function (event) {         // zmiana trybu 
         }
     }
 })
+document.addEventListener("contextmenu", function (event) { //prawy przycisk myszy nie otwiera context menu
+    event.preventDefault() 
+})
 
 
-
-function oflagowywanie(event, i, j){     
-    event.preventDefault()      //prawy przycisk myszy nie otwiera context menu
-
-    if (co_teraz != 2) {    //oflagowywanie
+function oflagowywanie(i, j){       //oflagowywanie prawym przyciskiem myszy
+    if (co_teraz != 2) {    
         if (co_teraz == 0) {          
             co_teraz = 1
             oho_mine(i,j)
