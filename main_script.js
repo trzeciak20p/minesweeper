@@ -38,7 +38,7 @@ function oflagowywanie(event, i, j){
             oho_mine(i, j)          
         }
     }
-})
+}
 
 function Mine(mine_i, mine_j, boom, cyferka) {
     this.mine_i = mine_i;
