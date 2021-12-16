@@ -7,6 +7,7 @@ let tab_mines
 let odwiedzone      //odwiedzone pola
 let ile_odwiedzone
 let flagi       // oflagowane pola
+
 document.addEventListener("keydown", function (event) {         // zmiana trybu odkopywanie/oflagowywanie i kolorków
     if (event.keyCode == 32 && co_teraz != 2) {
         if (co_teraz == 0) {
@@ -19,6 +20,12 @@ document.addEventListener("keydown", function (event) {         // zmiana trybu 
     }
 })
 
+document.addEventListener("keydown", function(event){       //spacja nie zjeżdża stroną w dół
+    if (event.keyCode == 32) {
+        event.preventDefault()
+    }
+
+})
 
 
 function Mine(mine_i, mine_j, boom, cyferka) {
