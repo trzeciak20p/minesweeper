@@ -2,31 +2,40 @@ document.getElementById("start_saper").addEventListener("click", saper_start)
 let rows
 let cols
 let mines
-let co_teraz        //odkopywanie/oflagowywanie
+let co_teraz = 0      //odkopywanie/oflagowywanie
 let tab_mines
 let odwiedzone      //odwiedzone pola
 let ile_odwiedzone
 let flagi       // oflagowane pola
+const main_saper = document.getElementById("main_saper")
 
 document.addEventListener("keydown", function (event) {         // zmiana trybu odkopywanie/oflagowywanie i kolorków
+    if (event.keyCode == 32) {          //spacja nie zjeżdża stroną w dół
+        event.preventDefault()
+    }
     if (event.keyCode == 32 && co_teraz != 2) {
         if (co_teraz == 0) {
             co_teraz = 1
-            document.getElementById("main_saper").style.border = "solid 30px #0000ff";
+            main_saper.style.border = "solid 30px #0000ff";
         } else {
             co_teraz = 0
-            document.getElementById("main_saper").style.border = "solid 30px #00ff00";
+            main_saper.style.border = "solid 30px #00ff00";
         }
     }
 })
 
-document.addEventListener("keydown", function(event){       //spacja nie zjeżdża stroną w dół
-    if (event.keyCode == 32) {
-        event.preventDefault()
+main_saper.addEventListener("contextmenu", function(event){       
+    event.preventDefault()      //prawy przycisk myszy nie otwiera context menu
+    if (co_teraz != 2) {
+        if (co_teraz == 0) {
+            co_teraz = 1
+            main_saper.style.border = "solid 30px #0000ff";
+        } else {
+            co_teraz = 0
+            main_saper.style.border = "solid 30px #00ff00";
+        }
     }
-
 })
-
 
 function Mine(mine_i, mine_j, boom, cyferka) {
     this.mine_i = mine_i;
@@ -45,7 +54,7 @@ function alert_ale_lepszy(text){        //popup
 }
 
 function win(){         //wygrana obviously
-    document.getElementById("main_saper").style.border = "solid 30px #ffff00";
+    main_saper.style.border = "solid 30px #ffff00";
     co_teraz = 2
     alert_ale_lepszy("WYGRAŁEŚ B)")
 }
@@ -109,7 +118,7 @@ function oho_mine(i, j) {        //kiedy mina kliknięta
     if(co_teraz == 0){
         if (tab_mines[i][j].boom == 1) {
             document.getElementById("i" + i + "j" + j).setAttribute("style", "background-image: url('img/mine.png');")
-            document.getElementById("main_saper").style.border = "solid 30px #ff0000";
+            main_saper.style.border = "solid 30px #ff0000";
             co_teraz = 2
             alert_ale_lepszy("PRZEGRAŁEŚ")
         } else {
@@ -151,9 +160,9 @@ function saper_start() {        //zaczyna nową grę
 
     ile_odwiedzone = 0
     co_teraz = 0
-    document.getElementById("main_saper").style.border = "solid 30px #00ff00";
+    main_saper.style.border = "solid 30px #00ff00";
 
-    const main_saper = document.getElementById("main_saper")
+    
     let saper_tabela_text = ""
     tab_mines = new Array(rows)
 
