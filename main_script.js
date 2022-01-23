@@ -23,7 +23,7 @@ document.addEventListener("keydown", function (event) {         // zmiana trybu 
         }
     }
 })
-document.addEventListener("contextmenu", function (event) { //prawy przycisk myszy nie otwiera context menu
+main_saper.addEventListener("contextmenu", function (event) { //prawy przycisk myszy nie otwiera context menu
     event.preventDefault() 
 })
 
