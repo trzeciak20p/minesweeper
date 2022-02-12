@@ -121,7 +121,20 @@ footer{
 	width: 100%;
 	height: 75px;
 }
-.zasady{
+footer .wiecej_grow{
+	font-size: 55px;
+	margin-bottom: 5px;
+	margin-left: 5px;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: #fff;
+	font-family: Arial;
+	float: left;
+}
+footer .wiecej_grow{
+	color: #8a2be2;
+}
+footer .zasady{
 	font-size: 55px;
 	margin-bottom: 5px;
 	margin-right: 5px;
@@ -131,6 +144,6 @@ footer{
 	font-family: Arial;
 	float: right;
 }
-.zasady:hover{
+footer .zasady:hover{
 	color: #16FF11;
 }
