@@ -23,10 +23,9 @@ document.addEventListener("keydown", function (event) {         // zmiana trybu 
         }
     }
 })
-document.addEventListener("contextmenu", function (event) { //prawy przycisk myszy nie otwiera context menu
+main_saper.addEventListener("contextmenu", function (event) { //prawy przycisk myszy nie otwiera context menu
     event.preventDefault() 
 })
-
 
 function oflagowywanie(i, j){       //oflagowywanie prawym przyciskiem myszy
     if (co_teraz != 2) {    
@@ -59,11 +58,10 @@ function alert_ale_lepszy(text){        //popup
 function win(){         //wygrana obviously
     main_saper.style.border = "solid 30px #ffff00";
     co_teraz = 2
-    alert_ale_lepszy("WYGRAŁEŚ B)")
+    alert_ale_lepszy("WYGRANA B)")
 }
 
 function teraz_najgorsze(i, j) {
-    
     
     if (odwiedzone[i][j] != true && tab_mines[i][j].boom != 1 && flagi[i][j] == 0) {
         odwiedzone[i][j] = true
@@ -121,7 +119,7 @@ function oho_mine(i, j) {        //kiedy mina kliknięta
     if(co_teraz == 0){
         if (tab_mines[i][j].boom == 1) {
             document.getElementById("i" + i + "j" + j).setAttribute("style", "background-image: url('img/mine.png');")
-            document.getElementById("i" + i + "j" + j).setAttribute("style", "background-color: #fff")
+            document.getElementById("i" + i + "j" + j).setAttribute("style", "background-color: #fff;")
             main_saper.style.border = "solid 30px #ff0000";
             co_teraz = 2
             alert_ale_lepszy("PRZEGRAŁEŚ")
