@@ -1,0 +1,21 @@
+body{
+    background-color: #aaa;
+}
+
+/* PLAYFIELD */
+main{
+
+}
+main tr{
+    margin: 2px;
+}
+.tile{
+    margin: 2px;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+}
+.tile:hover{
+    cursor: pointer;
+    background-color: aqua;
+}
